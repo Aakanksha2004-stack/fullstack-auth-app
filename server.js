@@ -1,22 +1,31 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+// Routes
 const authRoutes = require("./routes/authRoutes");
 const errorHandler = require("./middleware/errorHandler");
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("API running 🚀");
 });
 
 app.use("/api/auth", authRoutes);
 
-// 👇 error handler after routes
+// ✅ Serve frontend build
+app.use(express.static(path.join(__dirname, "frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
+});
+
+// Error handler (KEEP LAST)
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
