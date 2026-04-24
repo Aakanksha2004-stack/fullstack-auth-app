@@ -1,11 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const path = require("path");
+const cors = require("cors"); // 👈 ADD THIS
 
 dotenv.config();
 
 const app = express();
+
+// ✅ CORS FIX (VERY IMPORTANT)
+app.use(cors({
+  origin: "https://fullstack-auth-app-1-kcbr.onrender.com", // 👈 your frontend URL
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
@@ -18,14 +25,7 @@ app.get("/api", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
-// ✅ Serve frontend build
-app.use(express.static(path.join(__dirname, "frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
-});
-
-// Error handler (KEEP LAST)
+// Error handler (always last)
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
@@ -33,12 +33,10 @@ const MONGO_URI = process.env.MONGO_URI;
 
 async function start() {
   try {
-    if (!MONGO_URI) {
-      throw new Error("MONGO_URI is missing in .env");
-    }
+    if (!MONGO_URI) throw new Error("MONGO_URI missing");
 
     await mongoose.connect(MONGO_URI);
-    console.log("MongoDB connected successfully");
+    console.log("MongoDB connected");
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
