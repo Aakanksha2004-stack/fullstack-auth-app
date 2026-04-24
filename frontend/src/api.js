@@ -1,5 +1,9 @@
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 async function request(path, { method = "GET", body, token } = {}) {
-  const res = await fetch(path, {
+  console.log("BASE_URL:", BASE_URL);
+
+  const res = await fetch(`${BASE_URL}${path}`, {
     method,
     headers: {
       "Content-Type": "application/json",
@@ -9,10 +13,11 @@ async function request(path, { method = "GET", body, token } = {}) {
   });
 
   const data = await res.json().catch(() => ({}));
+
   if (!res.ok) {
-    const message = data?.message || "Request failed";
-    throw new Error(message);
+    throw new Error(data?.message || "Request failed");
   }
+
   return data;
 }
 
@@ -27,4 +32,3 @@ export const api = {
     return request("/api/auth/me", { token });
   },
 };
-
