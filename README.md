@@ -1,8 +1,10 @@
-🚀 Express + MongoDB + JWT Authentication API
+🚀 Full Stack Authentication App
 
-A simple and clean backend authentication system built using **Node.js, Express, MongoDB (Mongoose), and JWT**.
+A clean and scalable **full-stack authentication system** built using **Node.js, Express, MongoDB (Mongoose), JWT, and React**.
 
-✨ Features
+---
+
+## ✨ Features
 
 * ⚡ Express server setup
 * 🗄️ MongoDB connection using Mongoose
@@ -14,8 +16,9 @@ A simple and clean backend authentication system built using **Node.js, Express,
   controllers/
   middleware/
   config/
+  frontend/
   ```
-  👤 User model with:
+* 👤 User model:
 
   * name
   * email
@@ -24,12 +27,27 @@ A simple and clean backend authentication system built using **Node.js, Express,
 * 🔑 Authentication using **JWT (jsonwebtoken)**
 * 🛡️ Protected routes
 * ⚠️ Centralized error handling
+* 🎨 Simple React frontend (Login + Signup + Dashboard)
 
 ---
 
-📌 API Endpoints
+## 📸 Screenshots
 
-📝 Register User
+### 🔐 Login Page
+
+<img width="1908" height="922" alt="image" src="https://github.com/user-attachments/assets/6d483b59-916f-41ac-b911-86c14d020da1" />
+
+
+### 📊 Dashboard
+
+<img width="1718" height="678" alt="image" src="https://github.com/user-attachments/assets/a3c9baa9-81b0-4e4c-afb6-3cbd46d78b48" />
+
+
+---
+
+## 📌 API Endpoints
+
+### 📝 Register User
 
 **POST** `/api/auth/register`
 
@@ -70,13 +88,24 @@ Authorization: Bearer <your_token>
 
 ## ⚙️ Setup Instructions
 
-### 1. Install dependencies
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/Aakanksha2004-stack/fullstack-auth-app.git
+cd fullstack-auth-app
+```
+
+---
+
+### 2️⃣ Install backend dependencies
 
 ```
 npm install
 ```
 
-### 2. Create `.env` file in root
+---
+
+### 3️⃣ Create `.env` file in root
 
 ```
 MONGO_URI=mongodb://127.0.0.1:27017/express_auth_db
@@ -84,14 +113,29 @@ JWT_SECRET=your_super_secret_key
 PORT=5000
 ```
 
-### 3. Run server
+---
+
+### 4️⃣ Run backend
 
 ```
 npm run dev
 ```
 
-Server will run at:
+Backend runs on:
 👉 http://localhost:5000
+
+---
+
+### 5️⃣ Setup frontend
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs on:
+👉 http://localhost:5173
 
 ---
 
@@ -107,24 +151,36 @@ You can test APIs using:
 
 ## 🛠️ Tech Stack
 
-* Node.js
-* Express.js
-* MongoDB + Mongoose
-* JWT (jsonwebtoken)
-* bcryptjs
+* **Frontend:** React (Vite), Tailwind CSS
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB + Mongoose
+* **Authentication:** JWT
+* **Security:** bcryptjs
 
 ---
 
 ## 📌 Future Improvements
 
-* Refresh tokens
-* Role-based authentication
-* Email verification
-* Password reset feature
-* Deployment (Render / Railway)
+* 🔄 Refresh tokens
+* 👥 Role-based authentication
+* 📧 Email verification
+* 🔐 Forgot/reset password
+* 🌍 Deployment (Render + Netlify)
 
 ---
 
-Author
+## 🌐 Live Demo (Coming Soon)
 
-Aakanksha Sharma
+*(Add your deployed link here once live)*
+
+---
+
+ 👩‍💻 Author
+
+Aakanksha Sharma**
+
+---
+
+⭐ If you like this project
+
+Give it a ⭐ on GitHub and feel free to contribute!
