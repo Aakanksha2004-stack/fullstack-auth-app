@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+
+// 👇 error handler after routes
+app.use(errorHandler);
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -25,13 +29,12 @@ async function start() {
     }
 
     await mongoose.connect(MONGO_URI);
-    console.log("MongoDB connected");
-
-    app.use(errorHandler);
+    console.log("MongoDB connected successfully");
 
     app.listen(PORT, () => {
-      console.log("Server running");
+      console.log(`Server running on port ${PORT}`);
     });
+
   } catch (err) {
     console.error(err);
     process.exit(1);
@@ -39,4 +42,3 @@ async function start() {
 }
 
 start();
-
