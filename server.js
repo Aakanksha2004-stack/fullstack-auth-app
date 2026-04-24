@@ -10,7 +10,7 @@ const app = express();
 
 // ✅ CORS
 app.use(cors({
-  origin: "*", // for now keep open (we'll restrict later)
+  origin: "*",
 }));
 
 app.use(express.json());
@@ -21,13 +21,11 @@ const errorHandler = require("./middleware/errorHandler");
 
 app.use("/api/auth", authRoutes);
 
-// ✅ SERVE FRONTEND
-const __dirname1 = path.resolve();
-
-app.use(express.static(path.join(__dirname1, "frontend", "dist")));
+// ✅ SERVE FRONTEND (FIXED)
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname1, "frontend", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 
 // ❗ Error handler LAST
