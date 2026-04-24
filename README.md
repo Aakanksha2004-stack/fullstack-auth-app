@@ -1,54 +1,130 @@
-# Express + MongoDB (Mongoose) + JWT Auth API
+🚀 Express + MongoDB + JWT Authentication API
 
-## Features
-- Express server
-- MongoDB connection using Mongoose
-- Folder structure: `models/`, `routes/`, `controllers/`, `config/`, `middleware/`
-- User model: `name`, `email`, `password` (hashed)
-- Password hashing with `bcryptjs`
-- JWT authentication with `jsonwebtoken`
-- Routes:
-  - `POST /api/auth/register`
-  - `POST /api/auth/login`
-  - `GET /api/auth/me` (protected)
-- Centralized error handling
+A simple and clean backend authentication system built using **Node.js, Express, MongoDB (Mongoose), and JWT**.
 
-## Setup
-1. Install dependencies:
+✨ Features
 
-```bash
+* ⚡ Express server setup
+* 🗄️ MongoDB connection using Mongoose
+* 📁 Clean folder structure:
+
+  ```
+  models/
+  routes/
+  controllers/
+  middleware/
+  config/
+  ```
+  👤 User model with:
+
+  * name
+  * email
+  * hashed password
+* 🔐 Password hashing using **bcryptjs**
+* 🔑 Authentication using **JWT (jsonwebtoken)**
+* 🛡️ Protected routes
+* ⚠️ Centralized error handling
+
+---
+
+📌 API Endpoints
+
+📝 Register User
+
+**POST** `/api/auth/register`
+
+```json
+{
+  "name": "Ada",
+  "email": "ada@example.com",
+  "password": "password123"
+}
+```
+
+---
+
+### 🔐 Login User
+
+**POST** `/api/auth/login`
+
+```json
+{
+  "email": "ada@example.com",
+  "password": "password123"
+}
+```
+
+---
+
+### 👤 Get Current User (Protected)
+
+**GET** `/api/auth/me`
+
+🔑 Requires Header:
+
+```
+Authorization: Bearer <your_token>
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Install dependencies
+
+```
 npm install
 ```
 
-2. Create a `.env` file in the project root:
+### 2. Create `.env` file in root
 
-```env
+```
 MONGO_URI=mongodb://127.0.0.1:27017/express_auth_db
-JWT_SECRET=replace_this_with_a_long_random_secret
+JWT_SECRET=your_super_secret_key
 PORT=5000
 ```
 
-3. Start the server:
+### 3. Run server
 
-```bash
+```
 npm run dev
 ```
 
-Server will run on `http://localhost:5000`.
+Server will run at:
+👉 http://localhost:5000
 
-## API Usage (example)
-- Register: `POST http://localhost:5000/api/auth/register`
+---
 
-```json
-{ "name": "Ada", "email": "ada@example.com", "password": "password123" }
-```
+## 🧪 Testing
 
-- Login: `POST http://localhost:5000/api/auth/login`
+You can test APIs using:
 
-```json
-{ "email": "ada@example.com", "password": "password123" }
-```
+* Postman
+* Thunder Client
+* cURL
 
-- Get current user: `GET http://localhost:5000/api/auth/me`
-  - Add header: `Authorization: Bearer <token>`
+---
 
+## 🛠️ Tech Stack
+
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+* JWT (jsonwebtoken)
+* bcryptjs
+
+---
+
+## 📌 Future Improvements
+
+* Refresh tokens
+* Role-based authentication
+* Email verification
+* Password reset feature
+* Deployment (Render / Railway)
+
+---
+
+Author
+
+Aakanksha Sharma
