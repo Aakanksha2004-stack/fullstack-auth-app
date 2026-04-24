@@ -8,10 +8,14 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS
+// ✅ FIXED CORS (IMPORTANT)
 app.use(cors({
-  origin: "*",
+  origin: "https://fullstack-auth-app-qcvb.onrender.com",
+  credentials: true,
 }));
+
+// ✅ handle preflight
+app.options("*", cors());
 
 app.use(express.json());
 
@@ -21,7 +25,7 @@ const errorHandler = require("./middleware/errorHandler");
 
 app.use("/api/auth", authRoutes);
 
-// ✅ SERVE FRONTEND (FIXED)
+// ✅ SERVE FRONTEND
 app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 app.get("*", (req, res) => {
