@@ -1,103 +1,85 @@
-🚀 Full Stack Authentication App
+🔐 Full Stack Authentication App
 
-A clean and scalable **full-stack authentication system** built using **Node.js, Express, MongoDB (Mongoose), JWT, and React**.
+A production-ready full-stack authentication system with secure user registration, login, and protected routes. Built using modern web technologies and deployed on the cloud.
+
+
+
+ 🚀 Live Demo
+
+👉 https://fullstack-auth-app-qcvb.onrender.com
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/3d14943e-26de-42b2-8b07-68e77e9eba34" />
+<img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/58b01081-51fe-4051-879e-0d525bcf3960" />
+
 
 ---
 
 ## ✨ Features
 
-* ⚡ Express server setup
-* 🗄️ MongoDB connection using Mongoose
-* 📁 Clean folder structure:
-
-  ```
-  models/
-  routes/
-  controllers/
-  middleware/
-  config/
-  frontend/
-  ```
-* 👤 User model:
-
-  * name
-  * email
-  * hashed password
-* 🔐 Password hashing using **bcryptjs**
-* 🔑 Authentication using **JWT (jsonwebtoken)**
-* 🛡️ Protected routes
-* ⚠️ Centralized error handling
-* 🎨 Simple React frontend (Login + Signup + Dashboard)
+* User Registration (Signup)
+* Secure Login with JWT Authentication
+* Protected Routes (Dashboard)
+* Persistent Authentication (token-based)
+* Logout functionality
+* Centralized error handling
+* Fully deployed (Frontend + Backend)
 
 ---
 
-## 📸 Screenshots
+## 🛠️ Tech Stack
 
-### 🔐 Login Page
+**Frontend**
 
-<img width="1908" height="922" alt="image" src="https://github.com/user-attachments/assets/6d483b59-916f-41ac-b911-86c14d020da1" />
+* React (Vite)
+* Tailwind CSS
+* Fetch API
 
+**Backend**
 
-### 📊 Dashboard
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JSON Web Tokens (JWT)
 
-<img width="1718" height="678" alt="image" src="https://github.com/user-attachments/assets/a3c9baa9-81b0-4e4c-afb6-3cbd46d78b48" />
+**Deployment**
 
+* Render (Full-stack hosting)
 
 ---
 
-## 📌 API Endpoints
+## 📁 Project Structure
 
-### 📝 Register User
-
-**POST** `/api/auth/register`
-
-```json
-{
-  "name": "Ada",
-  "email": "ada@example.com",
-  "password": "password123"
-}
+```
+root/
+│
+├── frontend/           # React frontend (Vite)
+│   ├── src/
+│   ├── dist/
+│   └── .env
+│
+├── controllers/        # Business logic
+├── routes/             # API routes
+├── models/             # MongoDB models
+├── middleware/         # Auth & error handling
+│
+├── server.js           # Backend entry point
+├── package.json
+└── .env
 ```
 
 ---
 
-### 🔐 Login User
+## ⚙️ Getting Started
 
-**POST** `/api/auth/login`
-
-```json
-{
-  "email": "ada@example.com",
-  "password": "password123"
-}
-```
-
----
-
-### 👤 Get Current User (Protected)
-
-**GET** `/api/auth/me`
-
-🔑 Requires Header:
+### 1. Clone the Repository
 
 ```
-Authorization: Bearer <your_token>
-```
-
----
-
-## ⚙️ Setup Instructions
-
-### 1️⃣ Clone the repository
-
-```
-git clone https://github.com/Aakanksha2004-stack/fullstack-auth-app.git
+git clone https://github.com/your-username/fullstack-auth-app.git
 cd fullstack-auth-app
 ```
 
 ---
 
-### 2️⃣ Install backend dependencies
+### 2. Install Backend Dependencies
 
 ```
 npm install
@@ -105,28 +87,27 @@ npm install
 
 ---
 
-### 3️⃣ Create `.env` file in root
+### 3. Configure Environment Variables
+
+Create a `.env` file in the root:
 
 ```
-MONGO_URI=mongodb://127.0.0.1:27017/express_auth_db
-JWT_SECRET=your_super_secret_key
 PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
 ---
 
-### 4️⃣ Run backend
+### 4. Run Backend Server
 
 ```
-npm run dev
+npm start
 ```
-
-Backend runs on:
-👉 http://localhost:5000
 
 ---
 
-### 5️⃣ Setup frontend
+### 5. Setup Frontend
 
 ```
 cd frontend
@@ -134,53 +115,47 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
-👉 http://localhost:5173
+---
+
+## 🔐 API Endpoints
+
+| Method | Endpoint           | Description        |
+| ------ | ------------------ | ------------------ |
+| POST   | /api/auth/register | Register new user  |
+| POST   | /api/auth/login    | Authenticate user  |
+| GET    | /api/auth/me       | Get logged-in user |
 
 ---
 
 ## 🧪 Testing
 
-You can test APIs using:
+You can:
 
-* Postman
-* Thunder Client
-* cURL
-
----
-
-## 🛠️ Tech Stack
-
-* **Frontend:** React (Vite), Tailwind CSS
-* **Backend:** Node.js, Express.js
-* **Database:** MongoDB + Mongoose
-* **Authentication:** JWT
-* **Security:** bcryptjs
+* Register via UI
+* Login via UI
+* Or test APIs using Postman
 
 ---
 
 ## 📌 Future Improvements
 
-* 🔄 Refresh tokens
-* 👥 Role-based authentication
-* 📧 Email verification
-* 🔐 Forgot/reset password
-* 🌍 Deployment (Render + Netlify)
+* Refresh Token Authentication
+* Secure Cookies (httpOnly)
+* Role-based Authorization
+* Improved UI/UX
+* Toast Notifications
 
 ---
 
-## 🌐 Live Demo (Coming Soon)
+👩‍💻 Author
 
-*(Add your deployed link here once live)*
+Aakanksha Sharma
 
----
-
- 👩‍💻 Author
-
-Aakanksha Sharma**
+* GitHub: https://github.com/Aakanksha2004-stack
+* LinkedIn: https://www.linkedin.com/in/aakanksha-sharma-7628b329b/
 
 ---
 
-⭐ If you like this project
+## ⭐ Support
 
-Give it a ⭐ on GitHub and feel free to contribute!
+If you found this project useful, consider giving it a ⭐ on GitHub!
